@@ -7,6 +7,7 @@ interface Props {
     href?: string;
     variant?: string;
     nameIcon?: string;
+    target?: string;
     text: string;
     onClick?: () => void;
 }
@@ -17,12 +18,13 @@ const {
     variant = '',
     nameIcon,
     text,
+    target,
     onClick
 } = Astro.props;
 ---
 
 {as === 'a' ? (
-<a href={href} class={"ah-btn ah-btn_cta" + variant} onClick={onClick}>
+<a href={href} {...target ? {target} : {}} class={"ah-btn ah-btn_cta" + variant} onClick={onClick}>
     <span class="ah-btn_cta-fill"></span>
     {nameIcon && <span class="ah-btn_cta-icon"><Icon name={nameIcon}/></span>}
     <span class="ah-btn_cta-text">{text}</span>
