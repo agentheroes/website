@@ -1,6 +1,6 @@
 # AgentHeroes project
 
-<i> More than a meme generator. It’s a control panel for digital storytelling: static images, video memes.</i>
+<i> More than a character generator. It’s a control panel for digital storytelling: static images, video characters.</i>
 
 ![AgentHeroes project](public/images/og-image.jpg)
 
