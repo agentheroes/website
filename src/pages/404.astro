@@ -1,0 +1,132 @@
+---
+import Base from "../layouts/Base.astro";
+import Button from "../components/ui/Button.astro";
+---
+
+<Base
+    title="Error | Agent Heroes"
+    description="Agent Heroes - More than a meme generator. It’s a control panel for digital storytelling: static images, video memes."
+>
+    <section class="ah-error">
+        <div class="ah-error-content">
+            <div class="ah-error-body">
+                <div class="ah-error-container">
+                    <div class="ah-error-header">
+                        <h1>Page not found</h1>
+                    </div>
+                    <div class="ah-error-text">
+                        <p>The page you are looking for might have been removed, had its name changed, or is temporarily
+                            unavailable.</p>
+                    </div>
+                    <div class="ah-error-action">
+                        <Button
+                                as="a"
+                                href="/"
+                                text="Back to home"
+                                variant=" -sm -orange"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<style lang="scss">
+    @use "../scss/base/wraps" as *;
+
+    .ah-error {
+        $root:&;
+
+        &-content {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:100%;
+            height:90vh;
+            padding:12rem 0;
+
+            @media (min-width:$screen-ml-min) {
+                padding:20rem 0 10rem;
+            }
+        }
+
+        &-body {
+            width:100%;
+        }
+
+        &-container {
+            @extend .ah-container;
+        }
+
+        $root:&;
+
+        &-content {
+            padding:12rem 0 5rem;
+
+            @media (min-width:$screen-ml-min) {
+                padding:20rem 0 10rem;
+            }
+        }
+
+        &-container {
+            @extend .ah-container;
+        }
+
+        &-header {
+            font-size:3.2rem;
+            font-style:normal;
+            font-weight:600;
+            line-height:135%;
+            letter-spacing:-0.128rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:4rem;
+                letter-spacing:-0.16rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:4.8rem;
+                letter-spacing:-0.192rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                font-size:5.2rem;
+                letter-spacing:-0.208rem;
+            }
+        }
+
+        &-text {
+            margin:2rem 0 0;
+
+            color:$color-senary;
+
+            font-size:1.6rem;
+            font-style:normal;
+            font-weight:400;
+            line-height:137.5%;
+            letter-spacing:-0.032rem;
+
+            @media (min-width:$screen-sm-min) {
+                width:60rem;
+
+                font-size:1.8rem;
+                line-height:137.5%;
+                letter-spacing:-0.036rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                margin:1.6rem 0 0;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                margin:1.8rem 0 0;
+
+                font-size:1.8rem;
+            }
+        }
+
+        &-action {
+            margin:2rem 0 0;
+        }
+    }
+</style>

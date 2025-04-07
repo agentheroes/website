@@ -1,0 +1,25 @@
+{
+  "name": "agentheroes-project",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Pepermint",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "browserslist": [
+    "since 2018"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.5.5",
+    "astro-icon": "^1.1.5",
+    "gsap": "^3.12.7",
+    "sass": "^1.86.0"
+  }
+}

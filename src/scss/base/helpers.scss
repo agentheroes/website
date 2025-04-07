@@ -1,0 +1,56 @@
+@use "variables" as *;
+
+// Responsive helpers
+.-lsm {
+    @media (min-width:$screen-sm-min) {
+        display:none;
+    }
+}
+
+.-lmd {
+    @media (min-width:$screen-md-min) {
+        display:none;
+    }
+}
+
+.-llg {
+    @media (min-width:$screen-lg-min) {
+        display:none;
+    }
+}
+
+.-lxl {
+    @media (min-width:$screen-xl-min) {
+        display:none;
+    }
+}
+
+.-gxs {
+    @media (max-width:$screen-xs-max) {
+        display:none;
+    }
+}
+
+.-gsm {
+    @media (max-width:$screen-sm-max) {
+        display:none;
+    }
+}
+
+.-gmd {
+    @media (max-width:$screen-md-max) {
+        display:none;
+    }
+}
+
+.-glg {
+    @media (max-width:$screen-lg-max) {
+        display:none;
+    }
+}
+
+.-gxl {
+    @media (max-width:$screen-xl-max) {
+        display:none;
+    }
+}

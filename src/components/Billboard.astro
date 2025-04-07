@@ -1,0 +1,253 @@
+---
+
+import Button from "./ui/Button.astro";---
+
+<section class="ah-billboard">
+    <div class="ah-billboard-content">
+        <div class="ah-billboard-container">
+            <div class="ah-billboard-place">
+                <div class="ah-billboard-canvas">
+                    <div class="ah-billboard-img">
+                        <picture>
+                            <source srcset="/images/billboard/1.jpg 1x, /images/billboard/1@2x.jpg 2x"
+                                    media="(max-width: 767px)">
+                            <img src="/images/billboard/2.jpg" srcset="/images/billboard/2@2x.jpg 2x" alt="">
+                        </picture>
+                    </div>
+                </div>
+                <div class="ah-billboard-info">
+                    <div class="ah-billboard-header">
+                        <h2>Ready to create?</h2>
+                    </div>
+                    <div class="ah-billboard-text">
+                        <p>Let your AI agent do the heavy lifting <br/> — start creating smarter today.</p>
+                    </div>
+                    <div class="ah-billboard-action">
+                        <Button
+                                as="a"
+                                href="#"
+                                text="Start your first drop"
+                                variant=" -md -orange"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import gsap from 'gsap';
+    import ScrollTrigger from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    let img = document.querySelector('.ah-billboard-img');
+    let info = document.querySelector('.ah-billboard-info');
+
+    const magicScrollBillboard = () => {
+        ScrollTrigger.create({
+            animation: tlScrollBillboard(),
+            trigger: img,
+            start: "top bottom"
+        });
+    }
+
+    const tlScrollBillboard = () => {
+        const tl = new gsap.timeline();
+
+        tl.set([img, info], {willChange: "transform"});
+
+        tl.from(img, {
+            opacity: 0,
+            scale: 0.9,
+            ease: "expo.out",
+            duration: 1.6,
+        }, 0);
+
+        tl.from(info, {
+            y:60,
+            opacity: 0,
+            ease: "expo.out",
+            duration: 1.8,
+        }, 0.1);
+
+        tl.set([img, info], {willChange: "auto"});
+
+        return tl;
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        magicScrollBillboard();
+    });
+</script>
+
+<style lang="scss">
+    @use "../scss/base/wraps" as *;
+
+    .ah-billboard {
+        $root:&;
+
+        position:relative;
+        overflow:hidden;
+
+        &-content {
+            padding:4.8rem 0 3.1rem;
+
+            @media (min-width:$screen-sm-min) {
+                padding:4.6rem 0 3rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                padding:5.4rem 0 3.6rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                padding:7.2rem 0;
+            }
+        }
+
+        &-container {
+            @extend .ah-container;
+        }
+
+        &-place {
+            position:relative;
+            display:block;
+            width:100%;
+            min-height:51.5rem;
+            padding:2rem 0;
+
+            @media (min-width:$screen-sm-min) {
+                display:flex;
+                align-items:center;
+                min-height:31rem;
+                padding:4.2rem 2.4rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                min-height:41.5rem;
+                padding:5.8rem 3.2rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                min-height:43rem;
+                padding:6.4rem 3.2rem;
+            }
+        }
+
+        &-canvas {
+            position:absolute;
+            top:0;
+            left:-2rem;
+            width:calc(100% + 4rem);
+            height:100%;
+
+            @media (min-width:$screen-sm-min) {
+                left:0;
+                width:100%;
+                height:100%;
+            }
+        }
+
+        &-img {
+            width:100%;
+            height:100%;
+
+            img {
+                width:100%;
+                height:100%;
+
+                object-fit:cover;
+                object-position:center;
+            }
+        }
+
+        &-info {
+            position:relative;
+            width:100%;
+            padding:2rem;
+
+            border-radius:0.5rem;
+            border:0.1rem solid #7E7E7E;
+            background:#2D2D2D;
+
+            @media (min-width:$screen-sm-min) {
+                width:33rem;
+                padding:2.4rem;
+
+                border-radius:0.4rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                width:42rem;
+                padding:4rem;
+
+                border-radius:0.6rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                width:47.5rem;
+            }
+        }
+
+        &-header {
+            color:$color-base;
+
+            font-size:2.8rem;
+            font-style:normal;
+            font-weight:600;
+            line-height:112.5%;
+            letter-spacing:-0.112rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:3.2rem;
+                letter-spacing:-0.128rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:4.4rem;
+                letter-spacing:-0.176rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                font-size:5.2rem;
+                letter-spacing:-0.208rem;
+            }
+        }
+
+        &-text {
+            margin:1.4rem 0 0;
+
+            font-size:1.4rem;
+            font-style:normal;
+            font-weight:400;
+            line-height:137.5%;
+            letter-spacing:-0.028rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:1.6rem;
+                letter-spacing:-0.032rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                margin:1.6rem 0 0;
+
+                font-size:1.8rem;
+                letter-spacing:-0.036rem;
+            }
+        }
+
+        &-action {
+            margin:2rem 0 0;
+
+            @media (min-width:$screen-sm-min) {
+                margin:2.4rem 0 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                margin:3.2rem 0 0;
+            }
+        }
+    }
+</style>

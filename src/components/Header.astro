@@ -1,0 +1,301 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<header class="ah-navbar">
+    <div class="ah-navbar-fill"></div>
+    <div class="ah-navbar-strip">
+        <div class="ah-navbar-container">
+            <div class="ah-navbar-grid">
+                <div class="ah-navbar-grid-col -left">
+                    <div class="ah-navbar-logo -md">
+                        <a href="/">
+                            <img src="/images/logo.svg?7">
+                        </a>
+                    </div>
+                </div>
+                <div class="ah-navbar-grid-col -center">
+                    <div class="ah-navbar-navs">
+                        <a href="/#features" class="ah-navbar-nav">Features</a>
+                        <a href="/#faq" class="ah-navbar-nav">FAQ</a>
+                        <a href="#" class="ah-navbar-nav">Docs</a>
+                    </div>
+                </div>
+                <div class="ah-navbar-grid-col -right">
+                    <div class="ah-navbar-toggle">
+                        <Button
+                                as="menu"
+                        />
+                    </div>
+                    <div class="ah-navbar-action">
+                        <Button
+                                as="a"
+                                href="#"
+                                nameIcon="github"
+                                text="Star Us"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ah-navbar-menu">
+        <div class="ah-navbar-menu-place">
+            <div class="ah-navbar-menu-fill"></div>
+            <div class="ah-navbar-menu-wrap">
+                <div class="ah-navbar-menu-items">
+                    <a href="/#features" class="ah-navbar-menu-item" data-astro-reload>Features</a>
+                    <a href="/#faq" class="ah-navbar-menu-item" data-astro-reload>FAQ</a>
+                    <a href="/" class="ah-navbar-menu-item" data-astro-reload>Docs</a>
+                </div>
+                <div class="ah-navbar-menu-action">
+                    <Button
+                            as="a"
+                            text="Star Us"
+                            nameIcon="github"
+                            variant=" -full"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        let html = document.querySelector('html');
+        let menu = document.querySelectorAll('.ah-navbar-menu-item');
+
+        menu.forEach((el) => {
+            el.addEventListener('click', () => html.classList.remove('-menu-open'));
+        });
+    });
+</script>
+
+<style lang="scss">
+    @use "../scss/base/wraps" as *;
+
+    .ah-navbar {
+        $root:&;
+
+        &-fill {
+        }
+
+        &-strip {
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            padding:1rem 0;
+            z-index:97;
+
+            background-color:rgba($color-bg, 0.8);
+            webkit-backdrop-filter:blur(10px);
+            backdrop-filter:blur(10px);
+        }
+
+        &-container {
+            @extend .ah-container;
+        }
+
+        &-grid {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            @media (min-width:$screen-ml-min) {
+                display:grid;
+                align-items:center;
+                grid-template-columns: 25rem 1fr 25rem;
+            }
+
+            &-col {
+                position:relative;
+
+                &.-left {
+
+                }
+
+                &.-center {
+                    text-align:center;
+
+                    @media (max-width:$screen-lg-max) {
+                        display:none;
+                    }
+                }
+
+                &.-right {
+                    display:flex;
+                    justify-content:flex-end;
+                }
+            }
+        }
+
+        &-logo {
+            position:relative;
+
+            a {
+                opacity:1;
+
+                transition:opacity ease-out .4s;
+
+                @media (hover:hover) {
+                    &:hover {
+                        opacity:0.75;
+                    }
+                }
+
+                img {
+                    width:14rem;
+                    height:2.8rem;
+
+                    object-fit:contain;
+                    object-position:center;
+
+                    @media (min-width:$screen-sm-min) {
+                        width:16rem;
+                        height:3.2rem;
+                    }
+
+                    @media (min-width:$screen-ml-min) {
+                        width:20rem;
+                        height:4rem;
+                    }
+                }
+            }
+        }
+
+        &-navs {
+            display:inline-flex;
+            gap:0 2.4rem;
+
+            color:$color-primary;
+
+            font-size:1.4rem;
+            font-style:normal;
+            font-weight:400;
+            line-height:135%;
+            letter-spacing:-0.028rem;
+
+            a {
+                position:relative;
+
+                color:$color-primary;
+                background-image:linear-gradient(transparent, transparent), linear-gradient($color-base, $color-base);
+                background-size:100% 0.1rem, 0 0.1rem;
+                background-position:0 100%, 100% 100%;
+                background-repeat:no-repeat;
+
+                text-decoration:none;
+
+                transition:background-size ease-out .4s, color ease-out .4s;
+
+                &:hover {
+                    color:$color-base;
+                    background-size:0 0.1rem, 100% 0.1rem;
+                    background-position:100% 100%, 0 100%;
+                }
+            }
+        }
+
+        &-action {
+            @media (max-width:$screen-lg-max) {
+                display:none;
+            }
+        }
+
+        &-toggle {
+            @media (min-width:$screen-ml-min) {
+                display:none;
+            }
+        }
+
+        &-menu {
+            position:fixed;
+            top:0;
+            left:0;
+            display: grid;
+            grid-template-rows: 0fr;
+            width:100%;
+            z-index:1;
+
+            transition: grid-template-rows 0.45s;
+
+            html.-menu-open & {
+                grid-template-rows: 1fr;
+            }
+
+            &-place {
+                overflow:hidden;
+            }
+
+            &-fill {
+                position:absolute;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+
+                background-color:$color-bg;
+                box-shadow:0 2px 8px 0 rgba(0, 0, 0, 0.40), 0 8px 10.7px 0 rgba(0, 0, 0, 0.25);
+            }
+
+            &-wrap {
+                position:relative;
+                padding:5.8rem 0 2.4rem;
+
+                border-bottom:1px solid #1F1F1F;
+
+                @media (min-width:$screen-sm-min) {
+                    padding:6.3rem 0 3.2rem;
+                }
+            }
+
+            &-items {
+            }
+
+            &-item {
+                position:relative;
+                display:block;
+                padding:1.4rem 2rem;
+
+                border-top:1px solid #212121;
+                color:$color-secondary;
+
+                font-size:1.4rem;
+                font-style:normal;
+                font-weight:400;
+                line-height:100%;
+                letter-spacing:-0.028rem;
+                text-decoration:none;
+
+                @media (min-width:$screen-sm-min) {
+                    padding:1.8rem 3.2rem;
+                }
+
+                &:first-child {
+                    border-color:transparent;
+                }
+            }
+
+            &-action {
+                padding:1rem 2rem 0;
+
+                @media (min-width:$screen-sm-min) {
+                    padding:1.5rem 3.2rem 0;
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const bodyContainer = document.querySelector('html')
+        const actionNav = bodyContainer.querySelector('.ah-navbar-toggle button')
+
+        actionNav.addEventListener('click', () => {
+            bodyContainer.classList.toggle('-menu-open')
+        });
+    });
+</script>

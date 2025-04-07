@@ -1,0 +1,134 @@
+---
+interface Props {
+    header: string;
+    text: string;
+}
+
+const {header, text} = Astro.props;
+---
+
+<section class="ah-headline">
+    <div class="ah-headline-content">
+        <div class="ah-headline-container">
+            <div class="ah-headline-header">
+                <h1>{header}</h1>
+            </div>
+            <div class="ah-headline-text">
+                <p>{text}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import gsap from 'gsap';
+    import ScrollTrigger from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    let header = document.querySelector('.ah-headline-header');
+    let text = document.querySelectorAll('.ah-headline-text');
+
+    const magicScroll = () => {
+        ScrollTrigger.create({
+            animation: tlScroll(),
+            trigger: header,
+            start: "top bottom"
+        });
+    }
+
+    const tlScroll = () => {
+        const tl = new gsap.timeline();
+
+        tl.set([header, text], {willChange: "transform"});
+
+        tl.from([header, text], {
+            y: 60,
+            opacity: 0,
+            ease: "expo.out",
+            stagger: 0.07,
+            duration: 2,
+        }, 0);
+
+        tl.set([header, text], {willChange: "auto"});
+
+        return tl;
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        magicScroll();
+    });
+</script>
+
+<style lang="scss">
+    @use "../scss/base/wraps" as *;
+
+    .ah-headline {
+        $root:&;
+
+        &-content {
+            padding:10rem 0 0;
+
+            @media (min-width:$screen-sm-min) {
+                padding:10rem 0 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                padding:13rem 0 0;
+            }
+        }
+
+        &-container {
+            @extend .ah-container;
+
+            @media (min-width:$screen-ml-min) {
+                padding:0 36.5rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                padding:0 60rem;
+            }
+        }
+
+        &-header {
+            font-size:2.8rem;
+            font-style:normal;
+            font-weight:500;
+            line-height:125%;
+            letter-spacing:-0.04rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:3.6rem;
+                letter-spacing:-0.04rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:4rem;
+                line-height:113%;
+            }
+        }
+
+        &-text {
+            margin:1rem 0 0;
+
+            color:#A3A6B2;
+
+            font-size:1.6rem;
+            font-style:normal;
+            font-weight:300;
+            line-height:137.5%;
+            letter-spacing:-0.032rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:1.8rem;
+                line-height:137.5%;
+                letter-spacing:-0.036rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:2rem;
+            }
+        }
+    }
+</style>

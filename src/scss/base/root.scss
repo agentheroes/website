@@ -1,0 +1,108 @@
+@use "variables" as *;
+
+// Document
+html {
+    scrollbar-width:thin;
+    scrollbar-gutter:stable;
+    
+    font-family:$font-family;
+    font-size:calc(10 * 100vw / 360);
+    text-align:left;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    
+    @media (min-width:$screen-sm-min) {
+        font-size:calc(10 * 100vw / 768);
+    }
+    
+    @media (min-width:$screen-ml-min) {
+        font-size:calc(10 * 100vw / 1440);
+    }
+    
+    
+    @media (min-width:$screen-ul-min) {
+        font-size:10px;
+    }
+    
+    // need for prevent iOS overscroll offset (see: navbar.scss)
+    //@media (pointer:coarse) {
+    //    position:relative;
+    //}
+}
+
+body {
+    color:$color-text;
+    background:$color-graybase;
+    -webkit-tap-highlight-color:transparent;
+    
+    font-size:1.4rem;
+    
+    .no-scroll &, .modal & {
+        overflow:hidden !important;
+    }
+}
+
+* {
+    box-sizing:border-box;
+    
+    &:before, &:after {
+        box-sizing:border-box;
+    }
+}
+
+::selection {
+    color:$color-base;
+    background:$color-primary;
+}
+
+main {
+    &.-fill {
+        background:$color-fill;
+    }
+}
+
+// Links
+a {
+    color:$color-link;
+    cursor:pointer;
+    text-decoration:underline;
+    -webkit-tap-highlight-color:initial;
+    
+    &:hover {
+        color:$color-link-hover;
+        text-decoration:none;
+    }
+}
+
+button {
+    cursor:pointer;
+    -webkit-tap-highlight-color:initial;
+}
+
+// Media
+img, svg, canvas, audio, video, iframe {
+    vertical-align:middle;
+}
+
+figure {
+    margin:0;
+}
+
+// Text & Headings
+p, h1, h2, h3, h4, h5, h6, blockquote, em, address {
+    margin:0;
+    padding:0;
+    
+    font-weight:inherit;
+    font-style:inherit;
+    font-size:inherit;
+    line-height:inherit;
+    text-align:inherit;
+    letter-spacing:inherit;
+    
+    @media print {
+        page-break-after:avoid;
+        orphans:3;
+        widows:3;
+    }
+}

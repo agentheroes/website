@@ -1,0 +1,374 @@
+---
+
+import Button from "./ui/Button.astro";---
+
+<section class="ah-advantage" id="features">
+    <div class="ah-advantage-content">
+        <div class="ah-advantage-container">
+            <div class="ah-advantage-header">
+                <h2>Create. <br class="-lsm"/> Animate. Publish.</h2>
+            </div>
+            <div class="ah-advantage-items">
+                <div class="ah-advantage-item -v1" style="background-image: url('/images/advantage/bg.jpg')">
+                    <div class="ah-advantage-info">
+                        <div class="ah-advantage-title">
+                            <h3>Generate Images</h3>
+                        </div>
+                        <div class="ah-advantage-text">
+                            <p>Create bold, scroll-stopping memes from prompts or images.</p>
+                        </div>
+                    </div>
+                    <div class="ah-advantage-img">
+                        <picture>
+                            <img src="/images/advantage/1.png" srcset="/images/advantage/1@2x.png 2x" alt="">
+                        </picture>
+                    </div>
+                </div>
+                <div class="ah-advantage-item -v2" style="background-image: url('/images/advantage/bg.jpg')">
+                    <div class="ah-advantage-info">
+                        <div class="ah-advantage-title">
+                            <h3>Build Agentic workflow</h3>
+                        </div>
+                        <div class="ah-advantage-text">
+                            <p>Every meme, video, and post you create can be measured. See what works, optimize your
+                                tone, and iterate faster.</p>
+                        </div>
+                    </div>
+                    <div class="ah-advantage-img">
+                        <picture>
+                            <img src="/images/advantage/2.jpg" srcset="/images/advantage/2@2x.jpg 2x" alt="">
+                        </picture>
+                    </div>
+                    <div class="ah-advantage-action">
+                        <Button
+                                as="a"
+                                href="#"
+                                text="Open Dashboard"
+                                variant=" -md -orange"
+                        />
+                    </div>
+                </div>
+                <div class="ah-advantage-item -v3" style="background-image: url('/images/advantage/bg.jpg')">
+                    <div class="ah-advantage-info">
+                        <div class="ah-advantage-title">
+                            <h3>Write & Schedule Social Posts</h3>
+                        </div>
+                        <div class="ah-advantage-text">
+                            <p>Need a caption, a headline, or a full post? Let your AI Agent write it for you.</p>
+                        </div>
+                    </div>
+                    <div class="ah-advantage-img">
+                        <picture>
+                            <img src="/images/advantage/3.jpg" srcset="/images/advantage/3@2x.jpg 2x" alt="">
+                        </picture>
+                    </div>
+                </div>
+                <div class="ah-advantage-item -v4" style="background-image: url('/images/advantage/bg.jpg')">
+                    <div class="ah-advantage-info">
+                        <div class="ah-advantage-title">
+                            <h3>Make Video Memes</h3>
+                        </div>
+                        <div class="ah-advantage-text">
+                            <p>Transform static concepts into fast, funny, and format-ready short videos.</p>
+                        </div>
+                    </div>
+                    <div class="ah-advantage-img">
+                        <picture>
+                            <img src="/images/advantage/4.png" srcset="/images/advantage/4@2x.png 2x" alt="">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import gsap from 'gsap';
+    import ScrollTrigger from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    let header = document.querySelector('.ah-advantage-header');
+    let item = document.querySelectorAll('.ah-advantage-item');
+
+    const magicScrollHeader = () => {
+        ScrollTrigger.create({
+            animation: tlScrollHeader(),
+            trigger: header,
+            start: "top bottom"
+        });
+    }
+
+    const tlScrollHeader = () => {
+        const tl = new gsap.timeline();
+
+        tl.set(header, {willChange: "transform"});
+
+        tl.from(header, {
+            y: 60,
+            opacity: 0,
+            ease: "expo.out",
+            duration: 2,
+        }, 0);
+
+        tl.set(header, {willChange: "auto"});
+
+        return tl;
+    }
+
+    const magicScrollItems = () => {
+        item.forEach((el) => {
+            ScrollTrigger.create({
+                animation: tlScrollItems(el),
+                trigger: el,
+                start: "top bottom"
+            });
+        });
+    }
+
+    const tlScrollItems = (el) => {
+        const tl = new gsap.timeline();
+
+        tl.set(el, {willChange: "transform"});
+
+        tl.from(el, {
+            y: 60,
+            opacity: 0,
+            ease: "expo.out",
+            duration: 2,
+        }, 0.125);
+
+        tl.set(el, {willChange: "auto"});
+
+        return tl;
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        magicScrollHeader();
+        magicScrollItems();
+    });
+</script>
+
+
+<style lang="scss">
+    @use "../scss/base/wraps" as *;
+
+    .ah-advantage {
+        $root:&;
+
+        position:relative;
+
+        border-top:1px solid #212121;
+        border-bottom:1px solid #212121;
+
+        &-content {
+            padding:4.4rem 0 6.2rem;
+
+            @media (min-width:$screen-sm-min) {
+                padding:5.6rem 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                padding:7.2rem 0;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                padding:8rem 0;
+            }
+        }
+
+        &-container {
+            @extend .ah-container;
+        }
+
+        &-header {
+            text-align:center;
+            font-size:3.2rem;
+            font-style:normal;
+            font-weight:600;
+            line-height:135%;
+            letter-spacing:-0.128rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:4rem;
+                letter-spacing:-0.16rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:4.8rem;
+                letter-spacing:-0.192rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                font-size:5.2rem;
+                letter-spacing:-0.208rem;
+            }
+        }
+
+        &-items {
+            display:grid;
+            gap:1.4rem 0;
+            margin:2.4rem 0 0;
+
+            @media (min-width:$screen-sm-min) {
+                grid-template-columns: repeat(2, 1fr);
+                gap:1.4rem;
+                margin:2.8rem 0 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                margin:3.2rem 0 0;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                margin:3.6rem 0 0;
+            }
+        }
+
+        &-item {
+            height:100%;
+
+            border:0.1rem solid #252525;
+            background-color:#151515;
+            border-radius:0.6rem;
+
+            @media (min-width:$screen-ml-min) {
+                &:nth-child(2) {
+                    grid-row:span 2 / span 2;
+                }
+
+                &:nth-child(3) {
+                    grid-row:span 2 / span 2;
+                }
+            }
+
+            @media (max-width:$screen-lg-max) {
+                &.-v1 {
+                    order:1;
+                }
+
+                &.-v2 {
+                    order:3;
+                }
+
+                &.-v3 {
+                    order:4;
+                }
+
+                &.-v4 {
+                    order:2;
+                }
+            }
+        }
+
+        &-info {
+            position:relative;
+            padding:2rem;
+            overflow:hidden;
+
+            @media (min-width:$screen-ml-min) {
+                padding:2.4rem;
+            }
+        }
+
+        &-title {
+            font-size:1.6rem;
+            font-style:normal;
+            font-weight:500;
+            line-height:125%;
+            letter-spacing:-0.064rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:1.8rem;
+                letter-spacing:-0.072rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:2rem;
+                letter-spacing:-0.08rem;
+            }
+        }
+
+        &-text {
+            margin:0.8rem 0 0;
+
+            color:$color-senary;
+
+            font-size:1.4rem;
+            font-style:normal;
+            font-weight:400;
+            line-height:137.5%;
+            letter-spacing:-0.028rem;
+
+            @media (min-width:$screen-sm-min) {
+                margin:1rem 0 0;
+
+                font-size:1.6rem;
+                letter-spacing:-0.032rem;
+            }
+        }
+
+        &-img {
+            #{$root}-item.-v1 & {
+                width:100%;
+                min-height:19.5rem;
+                margin:0 auto 2rem;
+
+                @media (min-width:$screen-sm-min) {
+                    min-height:auto;
+                }
+            }
+
+            #{$root}-item.-v2 & {
+                width:100%;
+                min-height:36rem;
+            }
+
+            #{$root}-item.-v3 & {
+                width:100%;
+                min-height:42rem;
+            }
+
+            #{$root}-item.-v4 & {
+                width:29rem;
+                min-height:19.5rem;
+                margin:0 auto 2rem;
+
+                @media (min-width:$screen-sm-min) {
+                    width:100%;
+                    min-height:auto;
+                    padding:0 2.4rem;
+                }
+            }
+
+            img {
+                width:100%;
+                height:100%;
+
+                object-fit:contain;
+                object-position:center;
+            }
+        }
+
+        &-action {
+            padding:2rem;
+
+            text-align:center;
+
+            @media (min-width:$screen-sm-min) {
+                padding:2.4rem 2.4rem 2.8rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                padding:3.4rem 2.4rem 3.6rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                padding:3rem 2.4rem 3.6rem;
+            }
+        }
+    }
+</style>

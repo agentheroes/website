@@ -1,0 +1,60 @@
+/* Main Colors */
+$color-base:#fff;
+$color-graybase:#000;
+
+$color-primary:#cccccc;
+$color-secondary:#C7C9D1;
+$color-tertiary:#E3E4E9;
+$color-quaternary:#FD7302;
+$color-quinary:#808080;
+$color-senary:#B3B3B3;
+$color-septenary:#E6E6E6;
+$color-octonary:#999999;
+$color-nonary:#FAFAFA;
+$color-denary:#151515;
+
+
+$color-fill:#f8f7f6;
+$color-smooth:#4f4f4f;
+$color-muted:#333333;
+//$color-disabled:#8C8C8C;
+
+$color-error:$color-primary;
+$color-info:#01d7fd;
+$color-success:#51c67d;
+$color-warning:#ff9f4d;
+$color-danger:$color-error;
+
+$color-bg:#090909;
+$color-text:#fff;
+$color-link:inherit;
+$color-link-hover:inherit;
+
+/* Fonts */
+$font-family:"Inter", sans-serif;
+
+/* Screen sizes */
+$screen-xs:393px;
+$screen-sm:768px;
+$screen-md:1024px;
+$screen-lg:1200px;
+$screen-ml:1440px;
+$screen-xl:1600px;
+$screen-ul:1920px;
+$screen-gl:2200px;
+
+$screen-xs-min:$screen-xs;
+$screen-xs-max:($screen-sm - 1);
+$screen-sm-min:$screen-sm;
+$screen-sm-max:($screen-md - 1);
+$screen-md-min:$screen-md;
+$screen-md-max:($screen-lg - 1);
+$screen-lg-min:$screen-lg;
+$screen-lg-max:($screen-ml - 1);
+$screen-ml-min:$screen-ml;
+$screen-ml-max:($screen-xl - 1);
+$screen-xl-min:$screen-xl;
+$screen-xl-max:($screen-ul - 1);
+$screen-ul-min:$screen-ul;
+$screen-ul-max:($screen-gl - 1);
+$screen-gl-min:$screen-gl;

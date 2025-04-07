@@ -1,0 +1,263 @@
+---
+import {Icon} from 'astro-icon/components'
+
+
+interface Props {
+    as?: 'button' | 'a' | 'menu';
+    href?: string;
+    variant?: string;
+    nameIcon?: string;
+    text: string;
+    onClick?: () => void;
+}
+
+const {
+    as = 'button',
+    href = '#',
+    variant = '',
+    nameIcon,
+    text,
+    onClick
+} = Astro.props;
+---
+
+{as === 'a' ? (
+<a href={href} class={"ah-btn ah-btn_cta" + variant} onClick={onClick}>
+    <span class="ah-btn_cta-fill"></span>
+    {nameIcon && <span class="ah-btn_cta-icon"><Icon name={nameIcon}/></span>}
+    <span class="ah-btn_cta-text">{text}</span>
+</a>
+    ) : as === 'menu' ? (
+<button class={"ah-btn ah-btn_menu"} onClick={onClick}>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+    ) : (
+<button class={"ah-btn ah-btn_cta" + variant} onClick={onClick}>
+    <span class="ah-btn_cta-fill"></span>
+    {nameIcon && <span class="ah-btn_cta-icon"><Icon name={nameIcon}/></span>}
+    <span class="ah-btn_cta-text">{text}</span>
+</button>
+    )}
+
+<style lang="scss">
+    .ah-btn {
+        $root:&;
+
+        &_dummy {
+            position:relative;
+            display:inline-block;
+            height:auto;
+            margin:0;
+            padding:0;
+
+            color:inherit;
+            background:none;
+            border:0;
+            border-radius:0;
+
+            font-family:inherit;
+            font-size:inherit;
+            font-weight:inherit;
+            letter-spacing:inherit;
+            line-height:inherit;
+            text-align:inherit;
+            text-transform:inherit;
+            text-indent:inherit;
+            text-decoration:none;
+
+            &:hover, &:focus {
+                text-decoration:none;
+            }
+        }
+
+        &_cta {
+            $this:&;
+
+            @extend .ah-btn_dummy;
+
+            display:inline-flex;
+            align-items:center;
+            gap:0 0.5rem;
+            padding:0.6rem 1.8rem;
+
+            background-color:transparent;
+            color:$color-graybase;
+            border-radius:0.6rem;
+
+            font-size:1.4rem;
+            font-style:normal;
+            font-weight:600;
+            line-height:2rem;
+
+            @media (min-width:$screen-sm-min) {
+                gap:0 0.6rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+
+            }
+
+            @media (min-width:$screen-ul-min) {
+
+            }
+
+            &.-sm {
+                padding:1rem 1.8rem;
+
+                @media (min-width:$screen-sm-min) {
+                    padding:0.8rem 2.4rem;
+                }
+
+                @media (min-width:$screen-ml-min) {
+                    padding:1rem 2.8rem;
+                }
+            }
+
+            &.-md {
+                padding:1rem 1.8rem;
+
+                @media (min-width:$screen-sm-min) {
+                    padding:1.2rem 2rem;
+                }
+
+                @media (min-width:$screen-ml-min) {
+                    padding:1.4rem 2.2rem;
+                }
+            }
+
+            &.-full {
+                @media (max-width:$screen-lg-max) {
+                    width:100%;
+                    justify-content:center;
+                }
+            }
+
+            &-fill {
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+
+                opacity:1;
+                background-color:$color-primary;
+                border-radius:0.6rem;
+
+                transition:background ease-out 0.45s;
+
+                #{$root}_cta:hover & {
+                    background-color: #F0F0F0;
+                }
+
+                #{$root}_cta:active & {
+                    background-color:$color-primary;
+                }
+
+                #{$root}_cta:focus & {
+                    background-color:$color-primary;
+                    outline:0.2rem solid rgba(#676E76, 0.5);
+                }
+
+                #{$root}_cta:disabled & {
+                    background-color:$color-primary;
+                }
+
+                #{$root}_cta.-orange & {
+                    background-color:$color-quaternary;
+                }
+
+                #{$root}_cta.-orange:hover & {
+                    background-color:#FD8F35;
+                }
+
+                #{$root}_cta.-orange:active & {
+                    background-color:$color-quaternary;
+                }
+
+                #{$root}_cta.-orange:focus & {
+                    background-color:$color-quaternary;
+                    outline:0.2rem solid rgba(#676E76, 0.5);
+                }
+
+                #{$root}_cta.-orange:disabled & {
+                    background-color:$color-quaternary;
+                }
+            }
+
+            &-text {
+                position:relative;
+            }
+
+            &-icon {
+                position:relative;
+                display:flex;
+                top:-0.1rem;
+                width:2rem;
+                height:2rem;
+                align-items:center;
+                justify-content:center;
+
+                font-size:2rem;
+            }
+        }
+
+        &_menu {
+            $this:&;
+
+            @extend .ah-btn_dummy;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            gap:6px 0;
+
+            width:24px;
+            height:24px;
+
+            @media (min-width:$screen-sm-min) {
+                transform:scale(1.1);
+            }
+
+            &:before {
+                content:"";
+                position:absolute;
+                top:-10px;
+                left:-10px;
+                right:-10px;
+                bottom:-10px;
+            }
+
+            span {
+                position:relative;
+                display:block;
+                width:100%;
+                height:2px;
+
+                background:currentColor;
+
+                transition:transform ease-out 0.35s;
+
+                &:nth-child(1) {
+                    html.-menu-open & {
+                        transform:translate(0, 8px) rotateZ(45deg);
+                    }
+                }
+
+                &:nth-child(2) {
+                    html.-menu-open & {
+                        transform:rotateX(90deg);
+                    }
+                }
+
+                &:nth-child(3) {
+                    html.-menu-open & {
+                        transform:translate(0, -8px) rotateZ(-45deg);
+                    }
+                }
+            }
+        }
+    }
+</style>

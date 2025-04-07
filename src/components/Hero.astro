@@ -1,0 +1,207 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<section class="ah-hero">
+    <div class="ah-hero-content">
+        <div class="ah-hero-container">
+            <div class="ah-hero-header">
+                <h1>AI Agents for the <br/> Culture-Driven Internet</h1>
+            </div>
+            <div class="ah-hero-text">
+                <p>More than a meme generator. It’s a control panel for digital storytelling: static images, video
+                    memes.</p>
+            </div>
+            <div class="ah-hero-action">
+                <Button
+                        as="a"
+                        text="Star Us"
+                        nameIcon="github"
+                        variant=" -sm -orange"
+                />
+            </div>
+            <div class="ah-hero-place">
+                <div class="ah-hero-video">
+                    <video src="/video/4.mp4?1" preload="auto" autoplay="autoplay" loop="loop" muted="muted"
+                           playsinline="playsinline"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import gsap from 'gsap';
+    import ScrollTrigger from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    // let bg = document.querySelector('.ah-hero-bg');
+    let header = document.querySelector('.ah-hero-header');
+    let text = document.querySelector('.ah-hero-text');
+    let action = document.querySelector('.ah-hero-action');
+    // let img = document.querySelectorAll('.ah-hero-img');
+
+    const magicScrollHeader = () => {
+        ScrollTrigger.create({
+            animation: tlScrollHeader(),
+            trigger: header,
+            start: "top bottom"
+        });
+    }
+
+    const tlScrollHeader = () => {
+        const tl = new gsap.timeline();
+
+        tl.set([header, text, action], {willChange: "transform"});
+
+        tl.from([header, text, action], {
+            y: 60,
+            opacity: 0,
+            ease: "expo.out",
+            stagger: 0.07,
+            duration: 2,
+        }, 0);
+
+        tl.set([header, text, action], {willChange: "auto"});
+
+        return tl;
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        magicScrollHeader();
+    });
+</script>
+
+<style lang="scss">
+    @use "../scss/base/wraps" as *;
+
+    .ah-hero {
+        $root:&;
+
+        position:relative;
+        overflow:hidden;
+
+        &-content {
+            position:relative;
+            padding:8rem 0 0;
+
+            @media (min-width:$screen-sm-min) {
+                padding:9rem 0 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                padding:12rem 0 0;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                padding:13rem 0 0;
+            }
+        }
+
+        &-container {
+            @extend .ah-container;
+        }
+
+        &-header {
+            position:relative;
+            z-index:1;
+
+            font-size:3.6rem;
+            font-style:normal;
+            font-weight:600;
+            line-height:112.5%;
+            text-align:center;
+            letter-spacing:-0.144rem;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:4.4rem;
+                letter-spacing:-0.176rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:5.6rem;
+                letter-spacing:-0.224rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                font-size:6.4rem;
+                letter-spacing:-0.256rem;
+            }
+        }
+
+        &-text {
+            position:relative;
+            width:26rem;
+            margin:1.4rem auto 0;
+            z-index:1;
+
+            color:$color-tertiary;
+
+            font-size:1.6rem;
+            font-style:normal;
+            font-weight:400;
+            line-height:137.5%;
+            letter-spacing:-0.032rem;
+            text-align:center;
+
+            @media (min-width:$screen-sm-min) {
+                width:39rem;
+
+                font-size:1.8rem;
+                line-height:137.5%;
+                letter-spacing:-0.036rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                width:42rem;
+                margin:1.6rem auto 0;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                margin:1.8rem auto 0;
+
+                font-size:1.8rem;
+            }
+        }
+
+        &-action {
+            position:relative;
+            margin:2.4rem 0 0;
+            z-index:1;
+
+            text-align:center;
+
+            @media (min-width:$screen-ml-min) {
+                margin:2.8rem 0 0;
+            }
+        }
+
+        &-place {
+            position:relative;
+            left:calc(50% - 50vw);
+            margin:-3rem 0 0;
+            width:100vw;
+
+            @media (min-width:$screen-sm-min) {
+                margin:-8rem 0 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                margin:-13rem 0 0;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                left:calc(50% - 72.2rem);
+                margin:-15rem 0 0;
+                width:144rem;
+                height:81rem;
+            }
+
+            video {
+                width:100%;
+            }
+        }
+    }
+</style>

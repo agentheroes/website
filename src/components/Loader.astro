@@ -1,0 +1,44 @@
+---
+
+---
+
+<div class="ah-loader ah-loader_overlay -visible"></div>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        let loader = document.querySelector('.ah-loader');
+        loader.classList.remove('-visible')
+    })
+</script>
+
+<style lang="scss">
+    .ah-loader {
+        $root:&;
+
+        &_overlay {
+            $this:&;
+
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            height:100vh;
+            z-index:999;
+
+            pointer-events:none;
+            opacity:0;
+            background:$color-bg;
+            visibility:hidden;
+
+            transition:opacity 0.6s, visibility 0s 0.6s;
+
+            &.-visible{
+                pointer-events:auto;
+                opacity:1;
+                visibility:visible;
+                transition-delay:0s, 0s;
+                transition-duration:0.3s, 0s;
+            }
+        }
+    }
+</style>

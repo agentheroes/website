@@ -1,0 +1,374 @@
+---
+import {Icon} from "astro-icon/components";
+---
+
+<section class="ah-faq" id="faq">
+    <div class="ah-faq-content">
+        <div class="ah-faq-container">
+            <div class="ah-faq-place">
+                <div class="ah-faq-header">
+                    <h2>Frequently-asked questions</h2>
+                </div>
+                <div class="ah-faq-accordion">
+                    <div class="ah-accordion">
+                        <div class="ah-accordion-items">
+                            <div class="ah-accordion-item">
+                                <button class="ah-accordion-header">
+                                    <span class="ah-accordion-header-text">Can I create both images and videos?</span>
+                                    <span class="ah-accordion-header-icon"><Icon name="arrow-up"/></span>
+                                </button>
+                                <div class="ah-accordion-detail">
+                                    <div class="ah-accordion-detail-info">
+                                        <div class="ah-accordion-detail-text">
+                                            <p>Yes. Just drop a prompt or upload a visual reference — your agent will do the rest.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ah-accordion-item">
+                                <button type="button" class="ah-accordion-header">
+                                    <span class="ah-accordion-header-text">Does it offer an API?</span>
+                                    <span class="ah-accordion-header-icon"><Icon name="arrow-up"/></span>
+                                </button>
+                                <div class="ah-accordion-detail">
+                                    <div class="ah-accordion-detail-info">
+                                        <div class="ah-accordion-detail-text">
+                                            <p>Not yet, but it's on our roadmap. We're building toward developer access for advanced automation and custom workflows.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ah-accordion-item">
+                                <button type="button" class="ah-accordion-header">
+                                    <span class="ah-accordion-header-text">What platforms does scheduling support?</span>
+                                    <span class="ah-accordion-header-icon"><Icon name="arrow-up"/></span>
+                                </button>
+                                <div class="ah-accordion-detail">
+                                    <div class="ah-accordion-detail-info">
+                                        <div class="ah-accordion-detail-text">
+                                            <p>Right now, scheduling is available for X (formerly Twitter). Support for other platforms is coming soon.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ah-accordion-item">
+                                <button type="button" class="ah-accordion-header">
+                                    <span class="ah-accordion-header-text">Can I collaborate with my team?</span>
+                                    <span class="ah-accordion-header-icon"><Icon name="arrow-up"/></span>
+                                </button>
+                                <div class="ah-accordion-detail">
+                                    <div class="ah-accordion-detail-info">
+                                        <div class="ah-accordion-detail-text">
+                                            <p>Team collaboration features are in development. For now, you can export, share drafts, and assign content to teammates manually.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ah-accordion-item">
+                                <button type="button" class="ah-accordion-header">
+                                    <span class="ah-accordion-header-text">Is there a free trial?</span>
+                                    <span class="ah-accordion-header-icon"><Icon name="arrow-up"/></span>
+                                </button>
+                                <div class="ah-accordion-detail">
+                                    <div class="ah-accordion-detail-info">
+                                        <div class="ah-accordion-detail-text">
+                                            <p>Yes! You can try Agent Heroes for free — no credit card required. Test all core features and see how your AI agent works before upgrading.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import gsap from 'gsap';
+    import ScrollTrigger from 'gsap/ScrollTrigger';
+    gsap.registerPlugin(ScrollTrigger);
+
+
+    let header = document.querySelector('.ah-faq-header');
+    let item = document.querySelectorAll('.ah-accordion-item');
+
+    const magicScrollHeader = () => {
+        ScrollTrigger.create({
+            animation: tlScrollHeader(),
+            trigger: header,
+            start: "top bottom"
+        });
+    }
+
+    const tlScrollHeader = () => {
+        const tl = new gsap.timeline();
+
+        tl.set(header, {willChange: "transform"});
+
+        tl.from(header, {
+            y: 60,
+            opacity: 0,
+            ease: "expo.out",
+            duration: 1.4,
+        }, 0);
+
+        tl.set(header, {willChange: "auto"});
+
+        return tl;
+    }
+
+    const magicScrollItems = () => {
+        item.forEach((el) => {
+            ScrollTrigger.create({
+                animation: tlScrollItems(el),
+                trigger: el,
+                start: "top bottom"
+            });
+        });
+    }
+
+    const tlScrollItems = (el) => {
+        const tl = new gsap.timeline();
+
+        tl.set(el, {willChange: "transform"});
+
+        tl.from(el, {
+            y: 60,
+            opacity: 0,
+            ease: "expo.out",
+            duration: 1.4,
+        }, 0);
+
+        tl.set(el, {willChange: "auto"});
+
+        return tl;
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        magicScrollHeader();
+        magicScrollItems();
+    });
+</script>
+
+<script is:raw>
+    const bindAccordion = () => {
+        const accordionItem = document.querySelectorAll('.ah-accordion-item');
+
+        accordionItem.forEach(item => {
+            let header = item.querySelector('.ah-accordion-header');
+
+            header.addEventListener('click', () => {
+                item.classList.toggle('-accordion-active');
+            });
+        });
+    }
+
+    document.addEventListener("astro:page-load", () => {
+        bindAccordion();
+    });
+</script>
+
+<style lang="scss">
+    @use "../scss/base/wraps" as *;
+
+    .ah-faq {
+        $root:&;
+
+        &-content {
+            padding:4.8rem 0;
+
+            @media (min-width:$screen-sm-min) {
+                padding:5.6rem 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                padding:6.2rem 0 7.2rem;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                padding:8.8rem 0;
+            }
+        }
+
+        &-container {
+            @extend .ah-container;
+        }
+
+        &-place {
+            display:grid;
+            gap:3.2rem 0;
+
+            @media (min-width:$screen-sm-min) {
+                gap:4.4rem 0;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                gap:0 4.4rem;
+                grid-template-columns: 43.5rem 1fr;
+                width:96rem;
+                margin:auto;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                gap:0 12.8rem;
+                grid-template-columns: 42rem 1fr;
+                width:120rem;
+            }
+        }
+
+        &-header {
+            color:$color-nonary;
+
+            font-size:3.2rem;
+            font-style:normal;
+            font-weight:600;
+            line-height:125%;
+            letter-spacing:-0.128rem;
+            text-align:center;
+
+            @media (min-width:$screen-sm-min) {
+                font-size:4rem;
+                line-height:112.5%;
+                letter-spacing:-0.16rem;
+            }
+
+            @media (min-width:$screen-ml-min) {
+                font-size:4.8rem;
+                letter-spacing:-0.192rem;
+                text-align:left;
+            }
+
+            @media (min-width:$screen-ul-min) {
+                font-size:5.2rem;
+                letter-spacing:-0.208rem;
+            }
+        }
+    }
+
+    .ah-accordion {
+        $root:&;
+
+        &-item {
+            padding:2.5rem 0;
+
+            border-top:1px solid #2F2F2F;
+
+            &:first-child {
+
+                border:none;
+
+                @media (min-width:$screen-ml-min) {
+                    padding-top:1rem;
+                }
+            }
+        }
+
+        &-header {
+            position:relative;
+            display:block;
+            width:100%;
+            padding:0 3.5rem 0 0;
+            margin:0;
+            pointer-events:none;
+
+            background:none;
+            color:$color-nonary;
+            border:none;
+
+            text-align:left;
+
+            &-text {
+                position:relative;
+                font-size:1.6rem;
+                font-style:normal;
+                font-weight:500;
+                line-height:125%;
+                letter-spacing:-0.064rem;
+                pointer-events:auto;
+                cursor:pointer;
+
+                @media (min-width:$screen-sm-min) {
+                    font-size:2rem;
+                    line-height:112.5%;
+                    letter-spacing:-0.08rem;
+                }
+
+                @media (min-width:$screen-ml-min) {
+                    font-size:2.4rem;
+                    letter-spacing:-0.096rem;
+                }
+
+                @media (min-width:$screen-ul-min) {
+                    font-size:2.8rem;
+                    letter-spacing:-0.112rem;
+                }
+            }
+
+            &-icon {
+                position:absolute;
+                top:calc(50% - 1.5rem);
+                right:0;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                width:3rem;
+                height:3rem;
+                pointer-events:auto;
+                cursor:pointer;
+
+                font-size:3rem;
+
+                transform:rotateX(180deg);
+                transition:transform ease-out 0.45s;
+
+                .-accordion-active & {
+                    transform:rotateX(0deg);
+                }
+            }
+        }
+
+        &-detail {
+            display:grid;
+            grid-template-rows:0fr;
+
+            transition:grid-template-rows 0.45s;
+
+            .-accordion-active & {
+                grid-template-rows:1fr;
+            }
+
+            &-info {
+                overflow:hidden;
+
+                color:$color-octonary;
+
+                font-size:1.6rem;
+                font-style:normal;
+                font-weight:300;
+                line-height:137.5%;
+                letter-spacing:-0.032rem;
+
+                @media (min-width:$screen-sm-min) {
+                    width:95%;
+                }
+
+                @media (min-width:$screen-ul-min) {
+                    width:90%;
+
+                    font-size:1.8rem;
+                    letter-spacing:-0.036rem;
+                }
+            }
+
+            &-text {
+                margin:1.4rem 0 0;
+
+                @media (min-width:$screen-sm-min) {
+                    margin:1.6rem 0 0;
+                }
+            }
+        }
+    }
+</style>
