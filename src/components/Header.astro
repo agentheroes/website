@@ -1,5 +1,8 @@
 ---
+import { Icon } from "astro-icon/components";
 import Button from "./ui/Button.astro";
+
+import {siteConfig} from '../../siteConfig'
 ---
 
 <header class="ah-navbar">
@@ -18,20 +21,37 @@ import Button from "./ui/Button.astro";
                     <div class="ah-navbar-navs">
                         <a href="/#features" class="ah-navbar-nav">Features</a>
                         <a href="/#faq" class="ah-navbar-nav">FAQ</a>
-                        <a href="https://docs.agentheroes.ai" target="_blank" class="ah-navbar-nav">Docs</a>
+                        <a href="#" class="ah-navbar-nav">Docs</a>
                     </div>
                 </div>
                 <div class="ah-navbar-grid-col -right">
                     <div class="ah-navbar-toggle">
+                        <!-- fix make this links reusable  -->
+                        <div class="ah-navbar-toggle-links">
+                            <a target="_blank" rel="noopener noreferrer" href={siteConfig.discord}>
+                                <Icon name="discord"/>
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href={siteConfig.twitter}>
+                                <Icon name="twitter"/>
+                            </a>
+                        </div>
                         <Button
                                 as="menu"
                         />
                     </div>
                     <div class="ah-navbar-action">
+                        <div class="ah-navbar-action-links">
+                            <a target="_blank" rel="noopener noreferrer" href={siteConfig.discord}>
+                                <Icon name="discord" width={30} height={30}/>
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href={siteConfig.twitter}>
+                                <Icon name="twitter"/>
+                            </a>
+                        </div>
+
                         <Button
                                 as="a"
-                                href="https://github.com/agentheroes/agentheroes"
-                                target="_blank"
+                                href="#"
                                 nameIcon="github"
                                 text="Star Us"
                         />
@@ -40,7 +60,7 @@ import Button from "./ui/Button.astro";
             </div>
         </div>
     </div>
-    <div class="ah-navbar-menu" style="z-index: 2">
+    <div class="ah-navbar-menu">
         <div class="ah-navbar-menu-place">
             <div class="ah-navbar-menu-fill"></div>
             <div class="ah-navbar-menu-wrap">
@@ -56,6 +76,16 @@ import Button from "./ui/Button.astro";
                             nameIcon="github"
                             variant=" -full"
                     />
+
+                    <div class="ah-navbar-menu-action-links">
+                        <a target="_blank" rel="noopener noreferrer" href={siteConfig.discord}>
+                            <Icon name="discord"/>
+                        </a>
+                        <a target="_blank" rel="noopener noreferrer" href={siteConfig.twitter}>
+                            <Icon name="twitter"/>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -68,7 +98,7 @@ import Button from "./ui/Button.astro";
         let menu = document.querySelectorAll('.ah-navbar-menu-item');
 
         menu.forEach((el) => {
-            el.addEventListener('click', () => html.classList.remove('-menu-open'));
+            el.addEventListener('click', () => html?.classList.remove('-menu-open'));
         });
     });
 </script>
@@ -88,11 +118,7 @@ import Button from "./ui/Button.astro";
             left:0;
             right:0;
             padding:1rem 0;
-            z-index:97;
-
-            background-color:rgba($color-bg, 0.8);
-            webkit-backdrop-filter:blur(10px);
-            backdrop-filter:blur(10px);
+            z-index:10000;
         }
 
         &-container {
@@ -119,6 +145,8 @@ import Button from "./ui/Button.astro";
 
                 &.-center {
                     text-align:center;
+                    justify-content: center;
+                    align-items: center;
 
                     @media (max-width:$screen-lg-max) {
                         display:none;
@@ -200,12 +228,67 @@ import Button from "./ui/Button.astro";
         }
 
         &-action {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
             @media (max-width:$screen-lg-max) {
                 display:none;
+            }
+
+            &-links {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                font-size: 2.4rem;
+
+                svg {
+                    width: 1em;
+                    height: 1em;
+                }
+
+                a {
+                    transition:opacity ease-out .4s;
+
+                    @media (hover:hover) {
+                        &:hover {
+                            opacity:0.75;
+                        }
+                    }
+                }
             }
         }
 
         &-toggle {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
+            &-links {
+                display: none;
+                justify-content: center;
+                gap: 10px;
+                font-size: 2.4rem;
+
+                @media (min-width:$screen-sm-min) {
+                    display: flex;
+                }
+
+                @media (min-width:$screen-ml-min) {
+                    display: none;
+                }
+
+                a {
+                    transition:opacity ease-out .4s;
+
+                    @media (hover:hover) {
+                        &:hover {
+                            opacity:0.75;
+                        }
+                    }
+                }
+            }
+
             @media (min-width:$screen-ml-min) {
                 display:none;
             }
@@ -218,7 +301,7 @@ import Button from "./ui/Button.astro";
             display: grid;
             grid-template-rows: 0fr;
             width:100%;
-            z-index:1;
+            z-index:101;
 
             transition: grid-template-rows 0.45s;
 
@@ -282,6 +365,28 @@ import Button from "./ui/Button.astro";
             &-action {
                 padding:1rem 2rem 0;
 
+                &-links {
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                    margin-top: 2.4rem;
+                    font-size: 2.2rem;
+
+                    @media (min-width:$screen-sm-min) {
+                        display: none;
+                    }
+
+                    a {
+                        transition:opacity ease-out .4s;
+
+                        @media (hover:hover) {
+                            &:hover {
+                                opacity:0.75;
+                            }
+                        }
+                    }
+                }
+
                 @media (min-width:$screen-sm-min) {
                     padding:1.5rem 3.2rem 0;
                 }
@@ -293,10 +398,10 @@ import Button from "./ui/Button.astro";
 <script>
     document.addEventListener("astro:page-load", () => {
         const bodyContainer = document.querySelector('html')
-        const actionNav = bodyContainer.querySelector('.ah-navbar-toggle button')
+        const actionNav = bodyContainer?.querySelector('.ah-navbar-toggle button')
 
-        actionNav.addEventListener('click', () => {
-            bodyContainer.classList.toggle('-menu-open')
+        actionNav?.addEventListener('click', () => {
+            bodyContainer?.classList.toggle('-menu-open')
         });
     });
 </script>
