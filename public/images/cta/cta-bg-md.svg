@@ -1,0 +1,26 @@
+<svg width="704" height="269" viewBox="0 0 704 269" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2063_3021)">
+<rect y="-0.186523" width="704" height="269.312" rx="6" fill="#2D2D2D"/>
+<mask id="mask0_2063_3021" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="162" y="-59" width="825" height="414">
+<ellipse cx="364.196" cy="173.348" rx="202.196" ry="181.166" fill="#D9D9D9"/>
+<ellipse cx="784.804" cy="147.757" rx="202.196" ry="206.757" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_2063_3021)">
+<line x1="291.47" y1="-92.4453" x2="291.47" y2="335.764" stroke="#1D1D1D" stroke-width="0.506757"/>
+<line x1="389.767" y1="-92.4453" x2="389.767" y2="335.764" stroke="#1D1D1D" stroke-width="0.506757"/>
+<line x1="488.064" y1="-92.4453" x2="488.064" y2="335.764" stroke="#1D1D1D" stroke-width="0.506757"/>
+<line x1="586.362" y1="-92.4453" x2="586.362" y2="335.764" stroke="#1D1D1D" stroke-width="0.506757"/>
+<line x1="684.659" y1="-92.4453" x2="684.659" y2="335.764" stroke="#1D1D1D" stroke-width="0.506757"/>
+<line x1="961.916" y1="24.8686" x2="203.301" y2="24.8686" stroke="#1D1D1D" stroke-width="0.506757"/>
+<line x1="961.916" y1="122.165" x2="203.301" y2="122.165" stroke="#1D1D1D" stroke-width="0.506757"/>
+<line x1="962.169" y1="219.463" x2="203.047" y2="219.463" stroke="#1D1D1D" stroke-width="0.506757"/>
+<rect opacity="0.04" x="290.716" y="25.1221" width="98.8176" height="96.7905" fill="#A7A7A7"/>
+<rect opacity="0.02" x="191.899" y="219.716" width="98.8176" height="96.7905" fill="#A7A7A7"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_2063_3021">
+<rect width="704" height="269" fill="white"/>
+</clipPath>
+</defs>
+</svg>
