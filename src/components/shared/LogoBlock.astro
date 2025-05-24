@@ -1,0 +1,83 @@
+
+<div class="wrapper">
+  <ul>
+    <a href="#"><img src="/images/logoBlock/1-dex-tools.svg" alt="dex tools logo"></a>
+    <a href="#"><img src="/images/logoBlock/2-dex-screener.svg" alt="dex screener logo"></a>
+    <a href="#"><img src="/images/logoBlock/3-coin-gecko.svg" alt="coin gecko logo"></a>
+    <a href="#"><img src="/images/logoBlock/4-coin-market.svg" alt="coin market logo"></a>
+  </ul>
+</div>
+
+<style lang="scss">
+  @use "@/scss/base/wraps" as *;
+  .wrapper {
+    $root:&;
+    max-width: 192rem;
+    margin-inline: auto;
+    padding: 2rem 2rem 0;
+
+    @media (min-width:$screen-sm-min) {
+      padding-inline: 3.2rem ;
+      padding-top: 0;
+    }
+    @media (min-width:$screen-ml-min) {
+      padding-inline: 11.5rem;
+      padding-top: 1rem;
+    }
+    @media (min-width:$screen-ul-min) {
+      padding-inline: 29rem;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding-left: 0;
+
+      @media (min-width:$screen-sm-min) {
+       flex-wrap: nowrap;
+      }
+      @media (min-width:$screen-sm-min) {
+        gap: 1.4rem;
+      }
+
+      a {
+        // remove 0.4rem because of 0.8 gap from `ul` el
+        flex-basis: calc(50% - 0.4em);
+        min-height: 7.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.6rem;
+        background: #2D2D2D;
+        border: 1px solid #7E7E7E;
+        border-radius: 0.6rem;
+
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #5A5858;
+        }
+
+        @media (min-width:$screen-sm-min) {
+          flex: 1;
+          padding-block: 4.4rem;
+        }
+        @media (min-width:$screen-ml-min) {
+          padding: 6rem 4rem;
+        }
+        img {
+          width: 90%;
+          height: 90%;
+
+          @media (min-width:$screen-sm-min) {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+</style>
