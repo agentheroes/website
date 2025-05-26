@@ -1,0 +1,21 @@
+<svg width="360" height="324" viewBox="0 0 360 324" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1256_9402" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-70" y="37" width="500" height="251">
+<ellipse cx="52.4937" cy="177.76" rx="122.494" ry="109.753" fill="#D9D9D9"/>
+<ellipse cx="307.305" cy="162.257" rx="122.494" ry="125.257" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_1256_9402)">
+<line x1="8.63177" y1="16.7383" x2="8.63176" y2="276.155" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="68.5761" y1="16.7383" x2="68.5761" y2="276.155" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="128.52" y1="16.7383" x2="128.52" y2="276.155" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="188.465" y1="16.7383" x2="188.465" y2="276.155" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="248.409" y1="16.7383" x2="248.409" y2="276.155" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="308.354" y1="16.7383" x2="308.354" y2="276.155" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="414.603" y1="87.8088" x2="-44.9792" y2="87.8088" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="414.603" y1="146.753" x2="-44.9792" y2="146.753" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="414.756" y1="205.697" x2="-45.1329" y2="205.697" stroke="#1D1D1D" stroke-width="0.307002"/>
+<line x1="414.603" y1="264.642" x2="-44.9792" y2="264.642" stroke="#1D1D1D" stroke-width="0.307002"/>
+<rect opacity="0.04" x="8.78516" y="87.9619" width="59.8654" height="58.6374" fill="#A7A7A7"/>
+<rect opacity="0.02" x="306.655" y="147.1" width="59.8654" height="58.6374" fill="#A7A7A7"/>
+<rect opacity="0.02" x="-51.887" y="205.851" width="59.8654" height="58.6374" fill="#A7A7A7"/>
+</g>
+</svg>

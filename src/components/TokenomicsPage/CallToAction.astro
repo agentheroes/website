@@ -1,0 +1,202 @@
+---
+import {siteConfig} from '../../../siteConfig'
+
+import Button from "../ui/Button.astro";
+---
+
+<section class="cta">
+  <div class="wrapper">
+    <div class="left">
+      <h4>Join the Community</h4>
+      <p>Let your AI agent do the heavy lifting — start creating smarter today.</p>
+      <div class="btns">
+        <Button as="a" href={siteConfig.twitter} target="_blank" rel="noopener noreferrer" text="Follow us on X" nameIcon="twitter" variant=" -md -center -full -orange btn"/>
+        <Button as="a" href={siteConfig.discord} target="_blank" rel="noopener noreferrer" text="Follow us on Discord" nameIcon="discord" variant=" -md -center -full -orange btn"/>
+      </div>
+    </div>
+    
+
+    <picture class="image_wrap">
+      <img class="support_img" loading="eager" src="/images/tokenomics/cta-main-image.png" srcset="/images/tokenomics/cta-main-image-2x.png 2x" alt="CallToAction main image">
+    </picture>
+
+    <picture>
+      <source media="(min-width: 90em)" srcset="/images/tokenomics/cta-bg-lg.svg" />
+      <source media="(min-width: 48em)" srcset="/images/tokenomics/cta-bg-md.svg" />
+      <img class="cta_bg" src="/images/tokenomics/hero-grid-sm.svg" alt="background image">
+    </picture>
+
+  </div>
+
+</section>
+
+<style lang="scss">
+  @use "@/scss/base/wraps" as *;
+
+  .cta {
+    $root:&;
+
+    max-width: 144rem;
+    margin-inline: auto;
+
+    @media (min-width:$screen-sm-min) {
+      padding: 6.6rem 3.2rem 1.4rem;
+    }
+
+    @media (min-width:$screen-ml-min) {
+      padding: 7.2rem 11rem 1rem;
+      border-top: 1px solid #212121;
+    }
+
+    .wrapper {
+      position: relative;
+      overflow-x: hidden;
+      padding: 5.4rem 4.8rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #2d2d2d;
+      z-index: 10;
+
+      @media (min-width:$screen-sm-min) {
+        padding: 5.2rem 4.8rem 4.8rem;
+        flex-direction: row;
+        border: 1px solid #7E7E7E;
+        border-radius: 0.6rem;
+        overflow-x: visible;
+      }
+
+      @media (min-width:$screen-ml-min) {
+        padding: 9.4rem 4rem;
+      }
+
+      .left {
+        color: $color-base;
+        text-align: center;
+        margin-bottom: 2.6rem;
+        z-index: 101;
+
+        @media (min-width:$screen-sm-min) {
+          text-align: left;
+          margin-bottom: 0;
+          width: 100%;
+          max-width: 43rem;
+        }
+
+        h4 {
+          margin-bottom: 1.4rem;
+          font-weight: 600;
+          font-size: 2.8rem;
+          line-height: 112%;
+          letter-spacing: -0.04em;
+
+          @media (min-width:$screen-sm-min) {
+            font-size: 3.2rem;
+          }
+
+          @media (min-width:$screen-ml-min) {
+            font-size: 4.4rem;
+            margin-bottom: 1.6rem;
+          }
+        }
+
+        p {
+          margin-bottom: 2rem;
+          margin-inline: auto;
+          font-weight: 400;
+          font-size: 1.4rem;
+          line-height: 138%;
+          letter-spacing: -0.02em;
+          max-width: 90%;
+
+          @media (min-width:$screen-sm-min) {
+            max-width: 27rem;
+            font-size: 1.6rem;
+            margin-bottom: 2.4rem;
+            margin-inline: initial;
+          }
+
+          @media (min-width:$screen-ml-min) {
+            font-size: 1.8rem;
+            max-width: 31rem;
+
+            margin-bottom: 3.2rem;
+
+          }
+        }
+
+        .btns {
+          display: flex;
+          flex-direction: column;
+          gap: 1.6rem;
+          max-width: 23rem;
+          margin-inline: auto;
+          
+          @media (min-width:$screen-sm-min) {
+            padding-inline: initial;
+            flex-direction: row;
+            max-width: 100%;
+            gap: 1.2rem
+          }
+          @media (min-width:$screen-ml-min) {
+            flex-direction: row;
+          }
+
+          .btn {
+            align-items: center;
+          }
+        }
+      }
+
+      .image_wrap {
+        display: flex;
+        justify-content: center;
+
+        .support_img {
+          position: relative;
+          right: 2rem;
+          width: 75%;
+          object-fit: fill;
+          z-index: 100;
+
+          @media (min-width:$screen-sm-min) {
+            position: absolute;
+            bottom: 0;
+            right: 4rem;
+            width: 44.5%;
+          }
+
+          @media (min-width:$screen-lg-min) {
+            width: 47%;
+            right: 8.4rem;
+          }
+        }
+      }
+    }
+    .cta_bg {
+      position: absolute;
+      bottom: 0;
+      left: -5rem;
+      z-index: -1;
+      width: 120%;
+      height: 65%;
+      object-fit: fill;
+
+      @media (min-width:$screen-sm-min) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        left: 0;
+        border-radius: 0.6rem;
+      }
+
+      @media (min-width:$screen-lg-min) {
+        object-fit: fill;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+</style>

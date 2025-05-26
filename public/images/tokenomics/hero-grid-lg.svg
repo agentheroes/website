@@ -1,0 +1,28 @@
+<svg width="1628" height="1054" viewBox="0 0 1628 1054" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1228_7261" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="120" width="1628" height="816">
+<ellipse cx="399" cy="357.5" rx="399" ry="357.5" transform="matrix(-1 0 0 1 1628 221)" fill="#D9D9D9"/>
+<ellipse cx="399" cy="408" rx="399" ry="408" transform="matrix(-1 0 0 1 798 120)" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_1228_7261)">
+<line y1="-0.5" x2="845" y2="-0.5" transform="matrix(4.37114e-08 1 1 -4.37114e-08 1373.5 54)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="845" y2="-0.5" transform="matrix(4.37114e-08 1 1 -4.37114e-08 1180.5 54)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="845" y2="-0.5" transform="matrix(4.37114e-08 1 1 -4.37114e-08 987.5 54)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="845" y2="-0.5" transform="matrix(4.37114e-08 1 1 -4.37114e-08 794.5 54)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="845" y2="-0.5" transform="matrix(4.37114e-08 1 1 -4.37114e-08 601.5 54)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="845" y2="-0.5" transform="matrix(4.37114e-08 1 1 -4.37114e-08 408.5 54)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="845" y2="-0.5" transform="matrix(4.37114e-08 1 1 -4.37114e-08 215.5 54)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="1497" y2="-0.5" transform="matrix(1 -4.93304e-08 -1.5493e-07 -1 49.5 285)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="1497" y2="-0.5" transform="matrix(1 -4.93304e-08 -1.5493e-07 -1 49.5 477)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="1498" y2="-0.5" transform="matrix(1 -4.93304e-08 -1.5493e-07 -1 49 669)" stroke="#1D1D1D"/>
+<line y1="-0.5" x2="1497" y2="-0.5" transform="matrix(1 -4.93304e-08 -1.5493e-07 -1 49.5 861)" stroke="#1D1D1D"/>
+<rect opacity="0.04" width="195" height="191" transform="matrix(-1 0 0 1 1374 286)" fill="#A7A7A7"/>
+<rect opacity="0.02" width="195" height="191" transform="matrix(-1 0 0 1 409 476)" fill="#A7A7A7"/>
+<rect opacity="0.02" width="195" height="191" transform="matrix(-1 0 0 1 1569 670)" fill="#A7A7A7"/>
+</g>
+<foreignObject x="328" y="811" width="131" height="131"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(25px);clip-path:url(#bgblur_0_1228_7261_clip_path);height:100%;width:100%"></div></foreignObject><path data-figma-bg-blur-radius="50" d="M408.5 861.5V891.5H378.5V861.5H408.5Z" fill="#CA3556" stroke="#212021"/>
+<foreignObject x="135" y="397" width="131" height="131"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(25px);clip-path:url(#bgblur_1_1228_7261_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="50" x="185.5" y="447.5" width="30" height="30" fill="#13E7FB" stroke="#212021"/>
+<defs>
+<clipPath id="bgblur_0_1228_7261_clip_path" transform="translate(-328 -811)"><path d="M408.5 861.5V891.5H378.5V861.5H408.5Z"/>
+</clipPath><clipPath id="bgblur_1_1228_7261_clip_path" transform="translate(-135 -397)"><rect x="185.5" y="447.5" width="30" height="30"/>
+</clipPath></defs>
+</svg>

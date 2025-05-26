@@ -1,0 +1,220 @@
+---
+import Button from "../ui/Button.astro";
+
+---
+
+<section class="hero" >
+  <div class="wrapper">
+    <div class="left">
+      <h1>Agent Heroes Token - Soon</h1>
+      <p>Explore the utility, distribution, and vision behind our token-powered ecosystem.</p>
+      
+      <Button class="btn" as="a" text="Star Us" nameIcon="github" variant=" -sm -orange"/>
+    </div>
+    
+      <picture class="image_wrap">
+        <img class="main_img" loading="eager" src="/images/tokenomics/hero-main-image.png" srcset="/images/tokenomics/hero-main-image-2x.png 2x" alt="Hero main image">
+      </picture>
+
+    <picture>
+      <source  media="(min-width: 90em)" srcset="/images/tokenomics/hero-grid-lg.svg" />
+      <img class="bg_grid" src="/images/tokenomics/hero-grid-sm.svg" alt="support image">
+    </picture>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "@/scss/base/wraps" as *;
+
+  .hero {
+    $root:&;
+    position: relative;
+    max-width: 144rem;
+    margin-inline: auto;
+    padding-top: 8rem;
+
+    @media (min-width:$screen-sm-min) {
+      padding: 8.8rem 0 0;
+    }
+
+    @media (min-width:$screen-lg-min) {
+      padding: 9.2rem 0 0;
+    }
+
+    @media (min-width:$screen-ml-min) {
+      margin: 0 auto;
+      padding-top: 17rem;
+      overflow: hidden;;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0 2rem;
+      border-bottom: 1px solid #212121;
+
+      @media (min-width:$screen-sm-min) {
+        margin: 0
+      }
+
+      @media (min-width:$screen-lg-min) {
+        flex-direction: row;
+        padding: 0 6rem 7rem;
+      }
+
+      @media (min-width:$screen-ml-min) {
+        padding: 0 11rem 13.2rem;
+      }
+      
+      .left {
+        padding-bottom: 4rem;
+        text-align:center;
+
+        @media (min-width:$screen-sm-min) {
+          max-width: 47rem;
+          margin-inline: auto;
+          padding-bottom: 3.5rem;
+        }
+
+        @media (min-width:$screen-lg-min) {
+          text-align: left;
+          flex-basis: 50%;
+          padding-bottom: 0;
+          margin-inline: initial;
+        }
+        
+        h1 {
+          margin-bottom: 1.4rem;
+          font-size: 3.6rem;
+          font-weight: 600;
+          letter-spacing: -0.04em;
+          line-height: 100%;
+
+          @media (min-width:$screen-sm-min) {
+            font-size: 4.4rem
+          }
+
+          @media (min-width:$screen-lg-min) {
+            font-size: 3.6rem;
+            margin-bottom: 1rem;
+          } 
+
+          @media (min-width:$screen-ml-min) {
+            font-size: 5.6rem;
+            margin-bottom: 1.6rem;
+          }
+
+          .h1_br {
+            display: none;
+            @media (min-width:$screen-sm-min) {
+              display: block
+            }
+          }
+        }
+        
+        p {
+          margin-bottom: 2.4rem;
+          margin-inline: auto;
+          font-size: 1.6rem;
+          line-height: 138%;
+          letter-spacing: -0.02em;
+          font-weight: 400;
+          color: $color-tertiary;
+          max-width: 90%;
+
+          @media (min-width:$screen-sm-min) {
+            max-width: 90%;
+          }
+
+          @media (min-width:$screen-lg-min) {
+            max-width: 85%;
+            margin-inline: initial;
+            margin-bottom: 1.6rem;
+            font-size: 1.2rem
+          }
+
+          @media (min-width:$screen-ml-min) {
+            font-size: 1.8rem;
+            margin-bottom: 2.8rem;
+          }
+        }
+        
+        .btn {
+          padding: 0;
+        }
+      }
+
+      .image_wrap {
+        z-index: 100;
+        position: relative;
+        left: -4rem;
+
+        @media (min-width:$screen-sm-min) {
+          left: -3rem;
+          text-align: center;
+        }
+
+        @media (min-width:$screen-lg-min) {
+          position: absolute;
+          left: initial;
+          bottom: 0;
+          right: 5rem;
+          width: 55%;
+        }
+
+        @media (min-width:$screen-ml-min) {
+          right: 10rem;
+        }
+        
+        .main_img {
+          width: 100%;
+          height: 100%;
+
+          @media (min-width:$screen-sm-min) {
+            width: 65%;
+            height: 65%;
+          }
+
+          @media (min-width:$screen-lg-min) {
+            width: 106%;
+            height: 106%;
+          } 
+
+          @media (min-width:$screen-ml-min) {
+            width: 95%;
+            height: 95%;
+          }
+        }
+      }
+
+      .bg_grid {
+        position: absolute;
+        z-index: -1;
+        object-fit: fill;
+        bottom: 0;
+        right: 0;
+        width: 110%;
+        height: 50%;
+
+        @media (min-width:$screen-sm-min) {
+          width: 100%;
+          height: 110%;
+        }
+
+        @media (min-width:$screen-ml-min) {
+          height: 100%;
+          width: 60%;
+          right: -4rem;
+          top: -3rem;
+          bottom: 0;
+          object-fit: cover;
+          transform: scale(1.4);
+        }
+      }
+    }
+  }
+
+  
+
+</style>

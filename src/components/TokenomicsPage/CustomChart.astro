@@ -1,0 +1,383 @@
+<div class="custom_chart_section" >
+  <h2>Vesting Schedule</h2>
+
+  <div class="chart_container">
+    <div class="chart_wrapper">
+      <div class="chart">
+
+        <div class="y-axis">
+          <ul>
+            <li>1,000B</li>
+            <li>750B</li>
+            <li>500B</li>
+            <li>250B</li>
+            <li>0</li>
+          </ul>
+        </div>
+
+        <div class="x-axis">
+          <ul>
+            <li>27/5/2025</li>
+            <li>27/5/2026</li>
+            <li>27/5/2027</li>
+          </ul>
+        </div>
+
+        <div class="main_content">
+          <div class="item item--1"></div>
+          <div class="item item--2"></div>
+          <div class="item item--3"></div>
+          <div class="item item--4"></div>
+          <div class="item item--5"></div>
+          <div class="item item--6"></div>
+          <div class="item item--7"></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="labels">
+      <li>
+        <div class="rect rect--1"></div>
+        <span>Team</span>
+      </li>
+      <li>
+        <div class="rect rect--2"></div>
+        <span>Treasury</span>
+      </li>
+      <li>
+        <div class="rect rect--3"></div>
+        <span>Marketing</span>
+      </li>
+      <li>
+        <div class="rect rect--4"></div>
+        <span>Community incentives</span>
+      </li>
+      <li>
+        <div class="rect rect--5"></div>
+        <span>Liquidity Farming Incentives </span>
+      </li>
+      <li>
+        <div class="rect rect--6"></div>
+        <span>Genesis Liquidity & MM</span>
+      </li>
+      <li>
+        <div class="rect rect--7"></div>
+        <span>Open Market Participants</span>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<style lang="scss">
+  @use "@/scss/base/wraps" as *;
+
+  .custom_chart_section {
+    $root:&;
+    max-width: 144rem;
+    margin-inline: auto;
+    padding: 0 2rem 3rem;
+    text-align: center;
+    
+    @media (min-width:$screen-sm-min) {
+      padding: 0 3.2rem;
+    }
+    @media (min-width:$screen-lg-min) {
+      padding: 0 3.2rem;
+    }
+    @media (min-width:$screen-ml-min) {
+      padding: 0 11rem 7.8rem;
+    }
+
+    h2 {
+      margin-bottom: 3rem;
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.04em;;
+      line-height: 112%;
+
+      @media (min-width:$screen-sm-min) {
+        margin-top: 5.6rem;
+        font-size: 4rem;
+      }
+      @media (min-width:$screen-ml-min) {
+        margin-top: 7.2rem;
+        font-size: 4.8rem;
+      }
+    }
+
+    .chart_container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @media (min-width:$screen-sm-min) {
+        gap: 5rem;
+      }
+
+      @media (min-width:$screen-ml-min) {
+        gap: 2.5rem;
+      }
+
+      @media (min-width:$screen-ml-min) {
+        flex-direction: row;
+      }
+      .chart_wrapper {
+        overflow: hidden;
+        width: 100%;
+
+        @media (min-width:$screen-ml-min) {
+          flex: 1;
+        }
+          
+        .chart {
+          position: relative;
+          margin-left: 5.4rem;
+          margin-bottom: 2.8rem;
+          border-bottom: 1px solid #6A6A6A;
+          border-left: 1px solid #6A6A6A;
+          height: 32rem;
+
+          @media (min-width:$screen-sm-min) {
+            height: 45rem;
+          }
+
+          // common ul
+          ul {
+            list-style: none;
+            font-size: 1.4rem;
+            line-height: 125%;
+            letter-spacing: -0.04em;
+            font-weight: 500;
+            color: #999;
+          }
+
+          .y-axis {
+            position: absolute;
+            left: -5.4rem;
+            top: 0;
+            height: 100%;
+
+            ul {
+              display: flex;
+              flex-direction: column;
+              align-items: end;
+              justify-content: space-between;
+              height: inherit;
+
+              li {
+                position: relative;
+                width: 100%;
+                text-align: right;
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  width: 10000%;
+                  height: 1px;
+                  background: #6A6A6A;
+                  z-index: 100;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  left: 126% ;
+                }
+
+                &:last-child {
+                  &::before {
+                    display: none;
+                  }
+                }
+                
+              }
+            }
+          }
+
+          .x-axis {
+            position: absolute;
+            bottom: -2.8rem;
+            left: 0;
+            width: 100%;
+
+            ul {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              li {
+                position: relative;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  height: 10000%;
+                  width: 1px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background: #6A6A6A;
+                  bottom: 155%;
+                  z-index: 100;
+                }
+
+                &:nth-child(1) {
+                  &::before {
+                    left: 0;
+                  }
+                }
+
+                &:nth-child(3) {
+                  &::before {
+                    left: initial;
+                    right: -1px;
+                  }
+                }
+              }
+            }
+
+          }
+
+          .main_content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 97.25%;
+
+            @media (min-width:$screen-sm-min) {
+              height: 98%;
+            }
+
+            .item {
+              width: 100%;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+
+              &--1 {
+                height: 27.5%;
+                background: #2195FB;
+                z-index: 7;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+              }
+
+              &--2 {
+                height: calc(30% + 27.5%);
+                background: #F72576;
+                z-index: 6;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+              }
+
+              &--3 {
+                height: calc(30% + 27.5% + 5%);
+                background: #FFD865;
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+                z-index: 5;
+              }
+
+              &--4 {
+                height: calc(30% + 27.5% + 5% + 20%);
+                background: #41F052;
+                clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+                z-index: 4;
+              }
+
+              &--5 {
+                height: calc(30% + 27.5% + 5% + 20% + 5%);
+                background: #FD7302;
+                clip-path: polygon(0 29%, 100% 0, 100% 100%, 0 100%);
+                z-index: 3;
+              }
+
+              &--6 {
+                height: calc(30% + 27.5% + 5% + 20% + 5% + 10%);
+                background: #13E7FB;
+                clip-path: polygon(0 34%, 100% 0, 100% 100%, 0 100%);
+                z-index: 2;
+                // opacity: 50%;
+
+              }
+
+              &--7 {
+                // 100%
+                height: calc(30% + 27.5% + 5% + 20% + 5% + 10% + 2.5%);
+                background: #B98FFE;
+                clip-path: polygon(0 35.5%, 100% 0, 100% 100%, 0 100%);
+                z-index: 1;
+              }
+            } 
+
+
+          }
+        }
+      }
+
+      .labels {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        margin-left: 5.4rem;
+
+        @media (min-width:$screen-sm-min) {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        @media (min-width:$screen-ml-min) {
+          flex-basis: 27.4rem;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          padding-bottom: 3rem;
+          margin-left: 0;
+        }
+        
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 1rem; 
+
+          .rect {
+            width: 1.6rem;
+            height: 1.6rem;
+
+            &--1 {
+              background-color: #B98FFE;
+            }
+            &--2 {
+              background-color: #13E7FB;
+            }
+            &--3 {
+              background-color: #FD7302;
+            }
+            &--4 {
+              background-color: #41F052;
+            }
+            &--5 {
+              background-color: #FFD865;
+            }
+            &--6 {
+              background-color: #F72576;
+            }
+            &--7 {
+              background-color: #2195FB;
+            }
+          }
+
+          span {
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 125%;
+            letter-spacing: -0.04em;
+            color: #999;
+
+            @media (min-width:$screen-sm-min) {
+              font-size: 2rem
+            }
+            @media (min-width:$screen-ml-min) {
+              text-wrap: nowrap;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
