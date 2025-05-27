@@ -6,20 +6,20 @@
       <div class="chart">
 
         <div class="y-axis">
-          <ul style="position: relative; z-index: 10000;">
-            <li style="background: black;">1,000B</li>
-            <li style="background: black;">750B</li>
-            <li style="background: black;">500B</li>
-            <li style="background: black;">250B</li>
-            <li style="background: black;">0</li>
+          <ul>
+            <li>1,000B</li>
+            <li>750B</li>
+            <li>500B</li>
+            <li>250B</li>
+            <li>0</li>
           </ul>
         </div>
 
         <div class="x-axis">
-          <ul style="width: 100%;">
-            <li style="width: 100%; text-align: center; position: relative">
-              <div style="position: absolute; left: 50%; transform: translateX(-100%)">Launch Date - TBD</div>
-            </li>
+          <ul>
+            <li>1</li>
+            <li>Launch day - TBD</li>
+            <li>3</li>
           </ul>
         </div>
 
@@ -221,12 +221,32 @@
                   &::before {
                     left: 0;
                   }
+
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #000;
+                  }
                 }
 
                 &:nth-child(3) {
                   &::before {
                     left: initial;
                     right: -1px;
+                  }
+
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #000;
                   }
                 }
               }
