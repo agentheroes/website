@@ -1,5 +1,5 @@
 ---
-import Button from "../ui/Button.astro";
+import CustomInput from "../shared/CustomInput.astro";
 
 ---
 
@@ -9,7 +9,9 @@ import Button from "../ui/Button.astro";
       <h1>Meet the <br> $AHERO Token</h1>
       <p>Explore the utility, distribution, and vision behind our token-powered ecosystem.</p>
       
-      <Button class="btn" as="a" text="Star Us" nameIcon="github" variant=" -sm -orange"/>
+      <div class="input_wrap">
+        <CustomInput value="C77swtTjedqT4a7qGv94nbaHuEiGSjWe5k5TnBFMKzmN"/>
+      </div>
     </div>
     
       <picture class="image_wrap">
@@ -68,6 +70,7 @@ import Button from "../ui/Button.astro";
       }
       
       .left {
+        width: 100%;
         padding-bottom: 4rem;
         text-align:center;
 
@@ -137,6 +140,21 @@ import Button from "../ui/Button.astro";
           @media (min-width:$screen-ml-min) {
             font-size: 1.8rem;
             margin-bottom: 2.8rem;
+          }
+        }
+
+        .input_wrap {
+          display: flex;
+          justify-content: center;
+          width: 90%;
+          margin-inline: auto;
+
+          @media (min-width:$screen-sm-min) {
+            max-width: 42rem;
+          }
+          @media (min-width:$screen-lg-min) {
+            margin-inline: initial;
+            justify-content: flex-start;
           }
         }
         

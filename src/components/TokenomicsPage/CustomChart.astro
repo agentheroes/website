@@ -17,8 +17,8 @@
 
         <div class="x-axis">
           <ul>
-            <li>1</li>
-            <li>Launch day - TBD</li>
+            <li>06/24/2025</li>
+            <li>2</li>
             <li>3</li>
           </ul>
         </div>
@@ -142,7 +142,7 @@
             height: 45rem;
           }
 
-          // common ul
+          // common ul styles
           ul {
             list-style: none;
             font-size: 1.4rem;
@@ -205,6 +205,7 @@
 
               li {
                 position: relative;
+
                 &::before {
                   content: "";
                   position: absolute;
@@ -219,7 +220,15 @@
 
                 &:nth-child(1) {
                   &::before {
+                    left:0;
+                    transform: translateX(0);
+                  }
+                }
+
+                &:nth-child(2) {
+                  &::before {
                     left: 0;
+                    
                   }
 
                   &::after {
@@ -227,7 +236,7 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    width: 100%;
+                    width: 110%;
                     height: 100%;
                     background: #000;
                   }
